@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" data-framework="angularjs">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>TodoMVC-angular</title>
+
+    <style>
+    [ng-cloak] {
+        display: none;
+    }
+    li {
+        border: 1px;
+    }
+    </style>
+
+</head>
+
+<body>
+    <div ng-controller="TodoController">
+        <div>
+
+            <form ng-submit="addNewTodo()">
+                <input type="checkbox" ></input>
+                <input placeholder="What needs to be done?" ng-model="newTodo" autofocus></input>
+            </form>
+        </div>
+        <hr>
+        <ul>
+            <li ng-repeat="todo in todos">
+                <input type="checkbox"></input>
+                <input placeholder="What needs to be done?" ></input>
+                <a>Delete</a>
+            </li>
+            
+        </ul>
+        <hr>
+        <a>22 items left</a>&nbsp&nbsp&nbsp&nbsp&nbsp<a>All</a>&nbsp&nbsp<a>Active</a>&nbsp&nbsp<a>Completed</a>
+
+    </div>
+
+
+
+    <script data-main="js/main " src="bower_components/requirejs/require.js "></script>
+</body>
+
+</html>
