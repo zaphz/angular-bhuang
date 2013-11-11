@@ -20,29 +20,46 @@
 <body>
     <div ng-controller="TodoController">
         <div>
-
+            {{path}}
             <form ng-submit="addNewTodo()">
-                <input type="checkbox" ></input>
+                <input type="checkbox"  ng-click="markAll(mastear)" ng-model="mastear" ></input>
                 <input placeholder="What needs to be done?" ng-model="newTodo" autofocus></input>
+                
+
+
+                
+
             </form>
         </div>
         <hr>
         <ul>
-            <li ng-repeat="todo in todos">
-                <input type="checkbox"></input>
-                <input placeholder="What needs to be done?" ></input>
-                <a>Delete</a>
+            <li ng-repeat="todo in todos  | filter:statusFilter" >
+                
+                
+                
+                <input type="checkbox"  ng-checked="todo.completed" ng-click="itemcheck(item,todo)" ng-model="item" ></input>
+                
+               
+                <input placeholder="{{todo.title}}" ng-change="inputChange(todo,itemTitle)" ng-model="itemTitle" ></input>
+                <a ng-click="removeTodo(todo)">Delete</a>
+                
             </li>
             
         </ul>
         <hr>
-        <a>22 items left</a>&nbsp&nbsp&nbsp&nbsp&nbsp<a>All</a>&nbsp&nbsp<a>Active</a>&nbsp&nbsp<a>Completed</a>
+        <a>{{itemLength}} items left</a>
+        &nbsp&nbsp&nbsp&nbsp&nbsp
+        <a href="#/" ng-model="path">All</a>
+        &nbsp&nbsp
+        <a href="#/active" ng-model="path">Active</a>
+        &nbsp&nbsp
+        <a href="#/completed" ng-model="path">Completed</a>
 
     </div>
 
 
 
-    <script data-main="js/main " src="bower_components/requirejs/require.js "></script>
+    <script data-main="js/main" src="lib/require.js "></script>
 </body>
 
 </html>

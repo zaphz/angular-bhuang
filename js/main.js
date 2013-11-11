@@ -1,6 +1,8 @@
+
+
 require.config({
 		paths:{
-			angular : "../bower_components/angular/angular"
+			angular : "../lib/angular"
 
 		},
 		shim:{
@@ -14,6 +16,6 @@ require.config({
 
 })
 
-require(['angular','app','controllers/todo','todoStorage/todoStorage','directive/todoFocus','directive/todoBlur'],function(angular){
+require(['angular','app','controllers/todo','todoStorage/todoStorage'],function(angular){
 		angular.bootstrap(document,['todomvc']);
 })
